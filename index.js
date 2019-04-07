@@ -5,6 +5,7 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use("/", require("./routes/users"));
+app.use("/", require("./routes/clothes"));
 
 //Get the server port or a default port called 3000
 var port = process.env.PORT || 4000;

@@ -10,7 +10,7 @@ var url =
   "mongodb+srv://DanielBB:DanielBB@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 
 //This method is used to get alla the data
-app.get("/users/create/", (req, res) => {
+app.get("/main/users/create/", (req, res) => {
   MongoClient.connect(url, (err, dataBase) => {
     if (err) throw err;
     const db = dataBase.db(nameDB);
@@ -19,13 +19,13 @@ app.get("/users/create/", (req, res) => {
       .toArray((err, result) => {
         if (err) throw err;
         res.status(200).send(result);
-        //db.close(); That's not working
       });
+    dataBase.close();
   });
 });
 
 //This POST method allows to add some users to the API
-app.post("/users/create/", (req, res) => {
+app.post("/main/users/create/", (req, res) => {
   var body = req.body;
 
   MongoClient.connect(url, (err, dataBase) => {
@@ -37,8 +37,8 @@ app.post("/users/create/", (req, res) => {
       .toArray((err, result) => {
         if (err) throw err;
         res.status(201).send(result);
-        //db.close(); That's not working
       });
+    dataBase.close();
   });
 });
 
