@@ -84,7 +84,7 @@ app.post("/main/", (req, res) => {
 /**
  * This POST method updates an element from the data base with a given id and a new body
  */
-app.post("/main/:id", (req, res) => {
+app.put("/main/:id", (req, res) => {
   var body = req.body;
   var idDocument = req.params.id;
   MongoClient.connect(url, (err, dataBase) => {
