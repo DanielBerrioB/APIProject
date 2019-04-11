@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var app = express();
 
 app.use(bodyParser.json());
+app.use("/", require("./routes/comments"));
 app.use("/", require("./routes/users"));
 app.use("/", require("./routes/clothes"));
 
