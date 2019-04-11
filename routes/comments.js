@@ -16,7 +16,6 @@ app.get("/main/comment/", (req, res) => {
   MongoClient.connect(url, (err, dataBase) => {
     if (err) throw err;
     const db = dataBase.db(nameDB);
-    console.log("Si hay conexion2");
     db.collection(collection1)
       .find()
       .toArray((err, result) => {
