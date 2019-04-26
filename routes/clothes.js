@@ -7,7 +7,7 @@ app.use(cors());
 var collection1 = "products";
 var nameDB = "boutique";
 var url =
-  "mongodb+srv://DanielBB:DanielBB@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
+  "mongodb+srv://DanielBB:daniel123@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 
 /**
  * This GET method "get" all the products storaged in the dataBase

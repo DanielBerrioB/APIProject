@@ -7,7 +7,7 @@ app.use(cors());
 var collection1 = "comment";
 var nameDB = "boutique";
 var url =
-  "mongodb+srv://DanielBB:DanielBB@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
+  "mongodb+srv://DanielBB:daniel123@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 
 /**
  * This GET method allows to get all the comments on the database

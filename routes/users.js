@@ -7,7 +7,7 @@ app.use(cors());
 var collection1 = "users";
 var nameDB = "boutique";
 var url =
-  "mongodb+srv://DanielBB:DanielBB@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
+  "mongodb+srv://DanielBB:daniel123@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 
 //This method is used to get alla the data
 app.get("/main/users/create/", (req, res) => {
@@ -19,8 +19,9 @@ app.get("/main/users/create/", (req, res) => {
       .toArray((err, result) => {
         if (err) throw err;
         res.status(200).send(result);
+        dataBase.close();
       });
-    dataBase.close();
+    
   });
 });
 
@@ -37,8 +38,8 @@ app.post("/main/users/create/", (req, res) => {
       .toArray((err, result) => {
         if (err) throw err;
         res.status(201).send(result);
+        dataBase.close();
       });
-    dataBase.close();
   });
 });
 
