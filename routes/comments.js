@@ -9,19 +9,20 @@ var nameDB = "boutique";
 var url =
   "mongodb+srv://DanielBB:daniel123@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 
+var client = MongoClient(url, { useNewUrlParser: true });
+const { validateToken } = require("./utils/auth");
 /**
  * This GET method allows to get all the comments on the database
  */
 app.get("/main/comment/", (req, res) => {
-  MongoClient.connect(url, (err, dataBase) => {
+  client.connect(err => {
     if (err) throw err;
-    const db = dataBase.db(nameDB);
+    const db = client.db(nameDB);
     db.collection(collection1)
       .find()
       .toArray((err, result) => {
         if (err) throw err;
         res.status(200).send(result);
-        dataBase.close();
       });
   });
 });
@@ -29,12 +30,12 @@ app.get("/main/comment/", (req, res) => {
 /**
  * This POST method add a new comment to the collection into the database
  */
-app.post("/main/comment/", (req, res) => {
+app.post("/main/comment/", validateToken, (req, res) => {
   var body = req.body;
   if (body) {
-    MongoClient.connect(url, (err, dataBase) => {
+    client.connect(err => {
       if (err) throw err;
-      const db = dataBase.db(nameDB);
+      const db = client.db(nameDB);
       db.collection(collection1)
         .find()
         .toArray((err, result) => {
@@ -47,17 +48,14 @@ app.post("/main/comment/", (req, res) => {
               .toArray((err, value) => {
                 if (err) throw err;
                 res.status(201).send(value);
-                dataBase.close();
               });
           } else {
             res.status(400).send({ message: "The comment already exists" });
-            dataBase.close();
           }
         });
     });
   } else {
     res.send({ message: "Not valid body" });
-    dataBase.close();
   }
 });
 
