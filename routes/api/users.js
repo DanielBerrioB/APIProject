@@ -10,8 +10,8 @@ var nameDB = "boutique";
 var url =
   "mongodb+srv://DanielBB:daniel123@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 var client = MongoClient(url, { useNewUrlParser: true });
-const { createToken } = require("./utils/auth");
-const { validateToken } = require("./utils/auth");
+const { createToken } = require("../utils/auth");
+const { validateToken } = require("../utils/auth");
 
 //This method is used to get alla the data
 app.get("/main/users/create/", validateToken, (req, res) => {

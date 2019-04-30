@@ -10,7 +10,7 @@ var url =
   "mongodb+srv://DanielBB:daniel123@cluster0-qdjmv.mongodb.net/test?retryWrites=true";
 
 var client = MongoClient(url, { useNewUrlParser: true });
-const { validateToken } = require("./utils/auth");
+const { validateToken } = require("../utils/auth");
 
 /**
  * This GET method "get" all the products storaged in the dataBase
