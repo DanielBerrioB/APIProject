@@ -29,4 +29,15 @@ app.post("/main/users/shopCart/", validateToken, (req, res) => {
   });
 });
 
+app.get("/main/users/shopCart/", validateToken, (req, res) => {
+  client.connect(err => {
+    if(err) throw err;
+    const db = client.db(nameDB);
+    db.collection(collection1).find().toArray((err, result) => {
+      if(err) throw err;
+      res.status(200).send(result);
+    });
+  });
+})
+
 module.exports = app;
