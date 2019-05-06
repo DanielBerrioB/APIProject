@@ -8,7 +8,7 @@ app.use("/", require("./clothes"));
 app.use("/", require("./users"));
 app.use("/", require("./shopCart"));
 
-//If the route is not found, this message is deploy
+//If the route is not found, this message is deployed
 app.use((req, res, next) => {
   res.status(400).send({
     message: "This end point does not exits"
